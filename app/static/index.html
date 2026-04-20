@@ -3,27 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-<title>Anamnes.IA — Transcrever aula</title>
+<title>Anamnes.IA — Central de processamento de aulas</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #F7F6FA;
+  --bg: #F4F8FB;
   --card: #FFFFFF;
-  --ink: #20202A;
-  --ink-2: #4A4A5A;
-  --ink-3: #8A8A9A;
-  --line: #ECEAF4;
-  --line-2: #E5E2EE;
-  --primary: #7942F9;
-  --primary-2: #5A28D8;
-  --primary-soft: #F1EBFE;
-  --primary-softer: #F7F4FF;
-  --dark: #1C1832;
-  --dark-text: #ECE7FB;
-  --dark-text-dim: #9D96B8;
-  --green: #10B981;
+  --ink: #142033;
+  --ink-2: #405166;
+  --ink-3: #708197;
+  --line: #E3EBF3;
+  --line-2: #DAE5F0;
+  --primary: #1E6FD9;
+  --primary-2: #1557B0;
+  --primary-soft: #EAF3FF;
+  --primary-softer: #F4F9FF;
+  --dark: #0F1D33;
+  --dark-text: #EAF3FF;
+  --dark-text-dim: #9CB2C9;
+  --green: #17A673;
   --radius: 14px;
   --radius-lg: 20px;
   --shadow: 0 10px 30px rgba(28,24,50,.07);
@@ -34,7 +34,7 @@
 html, body { height: 100%; }
 body {
   font-family: 'Inter', -apple-system, sans-serif;
-  background: linear-gradient(180deg, #F7F6FA 0%, #F4F1FB 100%); color: var(--ink);
+  background: linear-gradient(180deg, #F4F8FB 0%, #EEF5FB 100%); color: var(--ink);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
@@ -77,7 +77,7 @@ body {
 
 .main { display: flex; flex-direction: column; min-width: 0; }
 .top-header {
-  background: linear-gradient(180deg, #171327 0%, #1C1832 100%);
+  background: linear-gradient(180deg, #0C182B 0%, #0F1D33 100%);
   padding: 0;
   height: 62px;
   position: relative;
@@ -96,7 +96,7 @@ body {
 .top-header::after {
   content: ''; position: absolute;
   left: 0; right: 0; bottom: -1px; height: 48px;
-  background: #1C1832;
+  background: #0F1D33;
   -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 48' preserveAspectRatio='none'><path d='M0,0 L1920,0 L1920,4 C1440,60 480,-28 0,32 Z' fill='black'/></svg>") no-repeat center / 100% 100%;
           mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 48' preserveAspectRatio='none'><path d='M0,0 L1920,0 L1920,4 C1440,60 480,-28 0,32 Z' fill='black'/></svg>") no-repeat center / 100% 100%;
 }
@@ -170,7 +170,7 @@ body {
 .btn-dark:hover { background: rgba(255,255,255,.12); }
 
 .hero {
-  background: linear-gradient(135deg, #171327 0%, #1C1832 56%, #241C45 100%);
+  background: linear-gradient(135deg, #0B1526 0%, #0F1D33 58%, #14385A 100%);
   border-radius: 26px; padding: 40px;
   color: #fff; position: relative; overflow: hidden;
   box-shadow: var(--shadow-strong);
@@ -283,7 +283,7 @@ body {
 .drop-title { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
 .drop-sub { font-size: 12px; color: #B9B2D4; line-height: 1.55; }
 
-.proc-hero { background: linear-gradient(135deg, #171327 0%, #1C1832 56%, #241C45 100%); border-radius: 24px; padding: 32px; color: #fff; position: relative; overflow: hidden; box-shadow: var(--shadow-strong); animation: riseIn .55s ease both; }
+.proc-hero { background: linear-gradient(135deg, #0B1526 0%, #0F1D33 58%, #14385A 100%); border-radius: 24px; padding: 32px; color: #fff; position: relative; overflow: hidden; box-shadow: var(--shadow-strong); animation: riseIn .55s ease both; }
 .proc-hero::after {
   content: '';
   position: absolute;
@@ -413,85 +413,8 @@ body {
 .tab-btn:hover { transform: translateY(-1px); background: rgba(121,66,249,.06); }
 .tab-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); box-shadow: 0 8px 18px rgba(121,66,249,.24); }
 
-/* POPUP NAMORO */
-.popup-overlay {
-  position: fixed; inset: 0;
-  background: rgba(0,0,0,0.75); backdrop-filter: blur(8px);
-  display: flex; align-items: center; justify-content: center;
-  z-index: 9999; animation: fadeIn 0.3s;
-}
-.popup-box {
-  background: linear-gradient(135deg, #1a1f2e, #0c0f1a);
-  border: 2px solid rgba(236,72,153,0.3);
-  border-radius: 24px; padding: 40px 32px;
-  text-align: center; max-width: 420px; width: 90%;
-  box-shadow: 0 20px 60px rgba(236,72,153,0.3);
-  animation: popIn 0.4s;
-}
-.popup-emoji { font-size: 60px; margin-bottom: 12px; animation: bounce 1s infinite; }
-.popup-title { font-size: 26px; font-weight: 700; color: #fff; margin-bottom: 8px; }
-.popup-sub { font-size: 14px; color: #94a3b8; margin-bottom: 24px; }
-.popup-buttons {
-  display: flex; gap: 14px; justify-content: center;
-  position: relative; min-height: 52px; align-items: center;
-}
-.popup-btn {
-  padding: 14px 36px; border-radius: 12px;
-  font-size: 16px; font-weight: 700; cursor: pointer; border: none;
-  font-family: inherit; transition: transform 0.2s, box-shadow 0.2s;
-}
-.popup-btn-sim {
-  background: linear-gradient(135deg, #ec4899, #f43f5e);
-  color: #fff; box-shadow: 0 4px 20px rgba(236,72,153,0.4);
-}
-.popup-btn-sim:hover { transform: scale(1.1); }
-.popup-btn-nao {
-  background: rgba(255,255,255,0.08); color: #94a3b8;
-  border: 1px solid rgba(255,255,255,0.1);
-  transition: left 0.3s ease, top 0.3s ease;
-}
-
-.victory {
-  position: fixed; inset: 0;
-  background: linear-gradient(135deg, #ec4899, #a855f7, #3b82f6);
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  z-index: 10000; animation: fadeIn 0.5s; overflow: hidden;
-}
-.victory-content { text-align: center; padding: 20px; z-index: 2; position: relative; }
-.victory-photo {
-  max-width: 90vw; max-height: 50vh; border-radius: 20px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-  border: 4px solid #fff; animation: popIn 0.6s;
-}
-.victory-title {
-  font-size: 38px; font-weight: 800; color: #fff;
-  margin-top: 24px; text-shadow: 0 4px 20px rgba(0,0,0,0.3);
-  animation: popIn 0.8s;
-}
-.victory-sub {
-  font-size: 18px; color: rgba(255,255,255,0.9);
-  margin-top: 8px; animation: popIn 1s;
-}
-.emoji-rain {
-  position: fixed; top: -50px; font-size: 40px;
-  animation: fall linear infinite;
-  z-index: 1; pointer-events: none;
-}
-.victory-close {
-  margin-top: 24px;
-  background: rgba(255,255,255,0.2);
-  border: 2px solid #fff; color: #fff;
-  padding: 12px 28px; border-radius: 12px;
-  font-size: 15px; font-weight: 700; cursor: pointer;
-  font-family: inherit; backdrop-filter: blur(10px);
-}
-.victory-close:hover { background: rgba(255,255,255,0.3); }
-
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 @keyframes popIn { 0% { transform: scale(0.5); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
-@keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-@keyframes fall { 0% { transform: translateY(0) rotate(0deg); opacity: 1; } 100% { transform: translateY(110vh) rotate(360deg); opacity: 0; } }
 
 
 @keyframes riseIn {
@@ -633,6 +556,24 @@ body {
 }
 .empty-inline-kicker { font-size: 10px; letter-spacing: .14em; color: var(--primary); font-weight: 800; text-transform: uppercase; }
 
+
+.institutional-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:rgba(30,111,217,.10);border:1px solid rgba(30,111,217,.18);color:var(--primary);font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin-bottom:14px}
+.institutional-badge::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 6px rgba(23,166,115,.12)}
+.proc-console{margin-top:18px;display:grid;grid-template-columns:1.2fr .8fr;gap:16px;align-items:start}
+.proc-log-panel,.proc-system-panel{background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.10);border-radius:18px;padding:18px;box-shadow:inset 0 1px 0 rgba(255,255,255,.03)}
+.proc-panel-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.proc-panel-title{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#B9D5F5}
+.proc-panel-chip{padding:6px 10px;border-radius:999px;background:rgba(23,166,115,.12);color:#BFEBD9;font-size:11px;font-weight:700}
+.proc-log-stream{display:flex;flex-direction:column;gap:10px;max-height:208px;overflow:auto;padding-right:4px}
+.proc-log-item{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;padding:10px 12px;border-radius:14px;background:rgba(11,21,38,.36);border:1px solid rgba(255,255,255,.05)}
+.proc-log-time{font-size:11px;color:#9CB2C9;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;padding-top:1px}
+.proc-log-body{min-width:0}.proc-log-event{font-size:13px;color:#F5FAFF;font-weight:600;margin-bottom:3px}.proc-log-sub{font-size:12px;color:#AFC1D3;line-height:1.45}
+.proc-system-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.proc-system-card{padding:12px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06)}
+.proc-system-label{font-size:11px;color:#9CB2C9;margin-bottom:6px}.proc-system-value{font-size:15px;font-weight:700;color:#F4FAFF}.proc-system-sub{margin-top:4px;font-size:11px;color:#AFC1D3;line-height:1.4}
+.result-shell{position:relative}.result-shell::before{content:'';position:absolute;inset:0;border-radius:24px;background:linear-gradient(180deg,rgba(255,255,255,.05),transparent 18%);pointer-events:none}
+@media (max-width: 980px){.proc-console{grid-template-columns:1fr}.proc-system-grid{grid-template-columns:1fr 1fr}}
+
 @media (max-width: 900px) {
   .proc-metrics, .result-strip { grid-template-columns: repeat(2, minmax(0,1fr)); }
   .trust-band { grid-template-columns: 1fr; }
@@ -676,12 +617,6 @@ body {
   .panel { padding: 18px; }
   .cards-grid { grid-template-columns: 1fr; }
   .value-strip { grid-template-columns: 1fr; }
-  .popup-box { padding: 30px 20px; }
-  .popup-title { font-size: 22px; }
-  .popup-btn { padding: 12px 24px; font-size: 14px; }
-  .victory-title { font-size: 28px; }
-  .victory-sub { font-size: 15px; }
-  .emoji-rain { font-size: 30px; }
   input, button, textarea, select { font-size: 16px; }
 }
 
@@ -1006,7 +941,7 @@ body {
 
     <div class="page-wrap">
       <div class="page-head reveal">
-        <div class="crumb">AULAS · TRANSCRIÇÕES IA</div>
+        <div class="crumb">AMBIENTE CLÍNICO · TRANSCRIÇÕES ASSISTIDAS</div>
         <h1 class="page-title">Transforme áudio em material de estudo pronto para usar</h1>
         <div class="page-sub">Upload único, saída estruturada: transcrição organizada, resumo expandido, flashcards e exportação para revisão.</div>
       </div>
@@ -1074,23 +1009,24 @@ body {
           <div class="trust-band-sub">Fluxo com linguagem clara, processamento guiado e mensagem discreta de privacidade para que o usuário saiba o que está acontecendo em cada etapa.</div>
         </div>
         <div class="trust-band-card">
-          <div class="trust-band-kicker">Privacidade</div>
+          <div class="trust-band-kicker">Proteção de dados</div>
           <div class="trust-band-title">Uso restrito à aula enviada</div>
           <div class="trust-band-sub">O áudio enviado é processado para gerar transcrição, resumo e revisão, sem exigir configuração extra do usuário.</div>
         </div>
         <div class="trust-band-card">
-          <div class="trust-band-kicker">Tempo médio</div>
-          <div class="trust-band-title">Poucos minutos para concluir</div>
-          <div class="trust-band-sub">O processamento costuma terminar rapidamente e a interface continua orientando o usuário mesmo quando o arquivo leva mais tempo.</div>
+          <div class="trust-band-kicker">Operação previsível</div>
+          <div class="trust-band-title">Fila visual e leitura contínua</div>
+          <div class="trust-band-sub">Quando o arquivo leva mais tempo, a interface continua explicando cada etapa para reduzir ansiedade e preservar a sensação de controle.</div>
         </div>
       </section>
 
       <div id="view-upload" class="hero reveal">
         <div class="hero-grid">
           <div>
-            <div class="hero-label">◉ IA DE ESTUDO</div>
-            <h2 class="hero-title">Da aula gravada ao estudo estruturado, sem atrito.</h2>
-            <p class="hero-sub">Converta o áudio em uma entrega pronta para revisar: transcrição organizada, resumo expandido por blocos e flashcards para retenção ativa.</p>
+            <div class="hero-label">◉ AMBIENTE ASSISTIDO</div>
+            <div class="institutional-badge">Interface pensada para ensino médico</div>
+            <h2 class="hero-title">Da gravação acadêmica ao material clínico estruturado.</h2>
+            <p class="hero-sub">Transforme a aula gravada em um fluxo confiável de estudo: transcrição organizada, síntese técnica e revisão ativa em uma interface pensada para contexto universitário e institucional.</p>
             <div class="hero-points">
               <div class="hero-point">
                 <strong>Transcrição limpa</strong>
@@ -1130,7 +1066,7 @@ body {
             <div class="drop-sub">Arraste e solte aqui ou clique para selecionar o arquivo de áudio.</div>
           </label>
         </div>
-        <div class="upload-note">Fluxo pensado para ser simples: enviar, processar, revisar e exportar. Para produção, esta mesma base já está pronta para encaixar validação, fila e histórico.</div>
+        <div class="upload-note">Fluxo desenhado para ser claro, estável e confortável. A experiência prioriza legibilidade, segurança operacional e previsibilidade para ambientes de ensino.</div>
         <div id="error-upload" class="error-msg hidden"></div>
       </div>
 
@@ -1187,14 +1123,35 @@ body {
           <div class="stages-grid" id="stages-grid"></div>
           <div class="proc-side">
             <div class="support-card">
-              <div class="support-kicker">Experiência</div>
-              <div class="support-title" id="support-title">Você envia. A plataforma organiza.</div>
-              <div class="support-copy" id="support-copy">Enquanto o processamento acontece, o fluxo mantém tudo claro para transmitir calma, controle e confiança.</div>
+              <div class="support-kicker">Conforto de uso</div>
+              <div class="support-title" id="support-title">Fluxo claro, leitura calma, sensação de controle.</div>
+              <div class="support-copy" id="support-copy">A interface foi refinada para parecer um sistema estável: menos ruído visual, mais orientação contextual e sinais constantes de progresso.</div>
               <div class="support-list">
-                <span>Leitura mais limpa</span>
-                <span>Revisão mais rápida</span>
-                <span>Saída pronta para uso</span>
+                <span>etapas legíveis</span>
+                <span>feedback contínuo</span>
+                <span>saída organizada</span>
               </div>
+            </div>
+          </div>
+        </div>
+        <div class="proc-console">
+          <div class="proc-log-panel">
+            <div class="proc-panel-head">
+              <div class="proc-panel-title">Log visual do processamento</div>
+              <div class="proc-panel-chip" id="proc-log-chip">pipeline estável</div>
+            </div>
+            <div class="proc-log-stream" id="proc-log-stream"></div>
+          </div>
+          <div class="proc-system-panel">
+            <div class="proc-panel-head">
+              <div class="proc-panel-title">Diagnóstico do fluxo</div>
+              <div class="proc-panel-chip">institucional</div>
+            </div>
+            <div class="proc-system-grid">
+              <div class="proc-system-card"><div class="proc-system-label">Tipo detectado</div><div class="proc-system-value" id="sys-format">—</div><div class="proc-system-sub">Identificação inicial do áudio enviado.</div></div>
+              <div class="proc-system-card"><div class="proc-system-label">Tamanho estimado</div><div class="proc-system-value" id="sys-size">—</div><div class="proc-system-sub">Volume do arquivo para controle operacional.</div></div>
+              <div class="proc-system-card"><div class="proc-system-label">Pipeline</div><div class="proc-system-value" id="sys-pipeline">Aguardando</div><div class="proc-system-sub">Validação, transcrição, síntese e organização.</div></div>
+              <div class="proc-system-card"><div class="proc-system-label">Entrega esperada</div><div class="proc-system-value" id="sys-output">Resumo + cards</div><div class="proc-system-sub">Saída padrão do fluxo atual.</div></div>
             </div>
           </div>
         </div>
@@ -1229,13 +1186,13 @@ body {
             </div>
           </div>
         </div>
-        <div id="result-content" class="hidden">
+        <div id="result-content" class="hidden result-shell">
         <div class="proc-hero result-hero">
           <div class="result-head">
             <div>
               <div class="proc-label" style="animation:none">
                 <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--green)"></span>
-                MATERIAL GERADO
+                MATERIAL CONSOLIDADO
               </div>
               <h2 class="result-title" id="result-title"></h2>
               <div class="result-meta" id="result-meta"></div>
@@ -1302,33 +1259,10 @@ body {
 
 
 
-<!-- POP-UP NAMORO -->
-<div id="popup-namoro" class="popup-overlay hidden">
-  <div class="popup-box">
-    <div class="popup-emoji">💕</div>
-    <div class="popup-title">Quer namorar comigo?</div>
-    <div class="popup-sub">Resposta importante antes do download 😌</div>
-    <div class="popup-buttons">
-      <button class="popup-btn popup-btn-sim" onclick="aceitarNamoro()">Sim 💖</button>
-      <button id="btn-nao" class="popup-btn popup-btn-nao" onmouseover="fugirNao()" ontouchstart="fugirNao(event)">Não</button>
-    </div>
-  </div>
-</div>
-
-<!-- TELA DE VITÓRIA -->
-<div id="victory" class="victory hidden">
-  <div class="victory-content">
-    <img src="/static/nos.jpg" alt="Nós" class="victory-photo">
-    <div class="victory-title">EU TE AMO! 💕</div>
-    <div class="victory-sub">Agora é oficial! 🥰</div>
-    <button class="victory-close" onclick="fecharVitoria()">Continuar ✨</button>
-  </div>
-</div>
 
 <script>
 const API = window.location.origin;
 let aulaData = null;
-let pendingDownloadUrl = null;
 let processingInterval = null;
 let processingSmooth = null;
 let processingTimer = null;
@@ -1513,8 +1447,8 @@ function renderHistory() {
       const btn = document.createElement('button');
       btn.type = 'button';
       btn.className = 'history-mini-btn';
-      btn.textContent = 'Baixar PDF';
-      btn.onclick = () => interceptarDownload({ preventDefault(){} }, API + item.pdf_url);
+      btn.textContent = 'Exportar PDF';
+      btn.onclick = () => triggerDownload(API + item.pdf_url);
       actions.appendChild(btn);
     }
     if (item.anki_url) {
@@ -1522,7 +1456,7 @@ function renderHistory() {
       btn.type = 'button';
       btn.className = 'history-mini-btn';
       btn.textContent = 'Baixar Anki';
-      btn.onclick = () => interceptarDownload({ preventDefault(){} }, API + item.anki_url);
+      btn.onclick = () => triggerDownload(API + item.anki_url);
       actions.appendChild(btn);
     }
     list.appendChild(card);
@@ -1530,6 +1464,37 @@ function renderHistory() {
   renderContinueSection();
 }
 
+
+
+const PROC_LOGS = [];
+function appendProcessLog(eventText, subText) {
+  const stream = document.getElementById('proc-log-stream');
+  if (!stream) return;
+  const time = new Date().toLocaleTimeString('pt-BR', {hour:'2-digit', minute:'2-digit'});
+  PROC_LOGS.unshift({time, eventText, subText});
+  const recent = PROC_LOGS.slice(0, 6);
+  stream.innerHTML = recent.map(item => `
+    <div class="proc-log-item">
+      <div class="proc-log-time">${item.time}</div>
+      <div class="proc-log-body">
+        <div class="proc-log-event">${item.eventText}</div>
+        <div class="proc-log-sub">${item.subText}</div>
+      </div>
+    </div>`).join('');
+}
+function resetProcessLogs() {
+  PROC_LOGS.length = 0;
+  appendProcessLog('Fila preparada', 'O ambiente carregou o painel técnico e está aguardando o envio do áudio.');
+}
+function setSystemSummary(file) {
+  const format = (file.name.split('.').pop() || 'áudio').toUpperCase();
+  document.getElementById('sys-format').textContent = format;
+  document.getElementById('sys-size').textContent = (file.size / (1024*1024)).toFixed(1) + ' MB';
+  document.getElementById('sys-pipeline').textContent = 'Validação';
+}
+function triggerDownload(url) {
+  window.open(url, '_blank', 'noopener');
+}
 
 function initWaveBars() {
   const wrap = document.getElementById('wave-bars');
@@ -1686,9 +1651,12 @@ async function handleUpload(e) {
     const form = new FormData();
     form.append('titulo', file.name.replace(/\.[^.]+$/, ''));
     form.append('audio', file);
+    appendProcessLog('Upload em andamento', 'O arquivo está sendo enviado ao backend para registro da aula.');
     const res = await fetch(API + '/api/aulas', { method: 'POST', body: form });
     if (!res.ok) throw new Error('Não foi possível enviar o arquivo. Tente novamente.');
     const data = await res.json();
+    appendProcessLog('Upload concluído', 'A aula foi registrada com sucesso e entrou na fila de processamento.');
+    document.getElementById('sys-pipeline').textContent = 'Transição para fila';
     pollStatus(data.aula_id);
   } catch (err) {
     showError(err.message);
@@ -1824,7 +1792,7 @@ function renderResultContent() {
   const summaryBlocks = summarizeTextBlocks(aulaData.resumo || '');
   const exportCount = Number(Boolean(aulaData.pdf_url)) + Number(Boolean(aulaData.anki_url));
   const now = new Date().toLocaleDateString('pt-BR', { day: '2-digit', month: 'short' }).toUpperCase();
-  document.getElementById('result-meta').textContent = now + ' · material consolidado para revisão e exportação';
+  document.getElementById('result-meta').textContent = now + ' · material consolidado para leitura, revisão e exportação';
   document.getElementById('stat-flashcards').textContent = fcCount;
   document.getElementById('stat-blocks').textContent = summaryBlocks.length;
   document.getElementById('stat-paragraphs').textContent = paragraphCount;
@@ -1834,14 +1802,14 @@ function renderResultContent() {
   act.innerHTML = '';
   if (aulaData.pdf_url) {
     const a = document.createElement('a');
-    a.href = '#'; a.className = 'btn btn-download'; a.innerHTML = '<span class="btn-download-icon">↓</span><span class="btn-download-copy"><strong>Baixar PDF</strong><small>Resumo organizado para levar</small></span>';
-    a.onclick = (e) => interceptarDownload(e, API + aulaData.pdf_url);
+    a.href = '#'; a.className = 'btn btn-download'; a.innerHTML = '<span class="btn-download-icon">↓</span><span class="btn-download-copy"><strong>Exportar PDF</strong><small>Resumo organizado para levar</small></span>';
+    a.onclick = (e) => { e.preventDefault(); triggerDownload(API + aulaData.pdf_url); };
     act.appendChild(a);
   }
   if (aulaData.anki_url) {
     const a = document.createElement('a');
-    a.href = '#'; a.className = 'btn btn-download secondary'; a.innerHTML = '<span class="btn-download-icon">⟲</span><span class="btn-download-copy"><strong>Baixar deck Anki</strong><small>Revisão ativa pronta para continuar</small></span>';
-    a.onclick = (e) => interceptarDownload(e, API + aulaData.anki_url);
+    a.href = '#'; a.className = 'btn btn-download secondary'; a.innerHTML = '<span class="btn-download-icon">⟲</span><span class="btn-download-copy"><strong>Exportar deck Anki</strong><small>Revisão ativa pronta para continuar</small></span>';
+    a.onclick = (e) => { e.preventDefault(); triggerDownload(API + aulaData.anki_url); };
     act.appendChild(a);
   }
   const retryBtn = document.createElement('button');
@@ -1932,53 +1900,6 @@ function showTab(name) {
   });
   document.querySelectorAll('.tab-btn').forEach(b =>
     b.classList.toggle('active', b.dataset.tab === name));
-}
-
-// POP-UP NAMORO
-function interceptarDownload(e, url) {
-  e.preventDefault();
-  pendingDownloadUrl = url;
-  document.getElementById('popup-namoro').classList.remove('hidden');
-}
-
-function fugirNao(e) {
-  if (e) e.preventDefault();
-  const btn = document.getElementById('btn-nao');
-  const maxX = window.innerWidth - btn.offsetWidth - 20;
-  const maxY = window.innerHeight - btn.offsetHeight - 20;
-  const novoX = Math.max(10, Math.random() * maxX);
-  const novoY = Math.max(10, Math.random() * maxY);
-  btn.style.position = 'fixed';
-  btn.style.left = novoX + 'px';
-  btn.style.top = novoY + 'px';
-}
-
-function aceitarNamoro() {
-  document.getElementById('popup-namoro').classList.add('hidden');
-  document.getElementById('victory').classList.remove('hidden');
-  criarChuvaEmojis();
-}
-
-function criarChuvaEmojis() {
-  const emojis = ['🎉', '🎊', '💕', '💖', '💗', '💘', '💝', '🌸', '🌷', '🌹', '✨', '⭐', '🥳', '🎈', '🎁', '💐'];
-  for (let i = 0; i < 60; i++) {
-    const el = document.createElement('div');
-    el.className = 'emoji-rain';
-    el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-    el.style.left = Math.random() * 100 + 'vw';
-    el.style.animationDuration = (2 + Math.random() * 3) + 's';
-    el.style.animationDelay = Math.random() * 2 + 's';
-    document.body.appendChild(el);
-    setTimeout(() => el.remove(), 6000);
-  }
-}
-
-function fecharVitoria() {
-  document.getElementById('victory').classList.add('hidden');
-  if (pendingDownloadUrl) {
-    window.open(pendingDownloadUrl, '_blank');
-    pendingDownloadUrl = null;
-  }
 }
 
 function initRevealAnimations() {
